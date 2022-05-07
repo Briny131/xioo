@@ -1,6 +1,6 @@
 {
   "name": "xioo",
-  "version": "1.4.5",
+  "version": "1.5.2",
   "description": "xioo of project",
   "main": "./index.js",
   "dependencies": {
@@ -80,7 +80,7 @@
   "license": "ISC",
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/git-cz"
     }
   },
   "husky": {

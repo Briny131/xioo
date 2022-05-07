@@ -190,10 +190,7 @@ class Query {
         sql += `update ${table}
                   set ${item[0]} = case ${mainkey}`
         item.forEach((word, index) => {
-          if(typeof word === 'string') {
-            word = word.replace(/\'/g, `''`);
-          }
-          const finalWord = word === null || typeof word === 'boolean' || typeof word === 'number' ? word : `'${word}'`;
+          const finalWord = word === null || typeof word === 'boolean' || typeof word === 'number' ? word : `'${word}'`
           if (index === 0) return false
           sql += ` when '${idsArr[index - 1]}' then ${finalWord}`
         })
@@ -201,11 +198,8 @@ class Query {
       } else {
         sql += `,${item[0]} = case ${mainkey}`;
         item.forEach((word, index) => {
-          if(typeof word === 'string') {
-            word = word.replace(/\'/g, `''`);
-          }
           const finalWord = word === null || typeof word === 'boolean' || typeof word === 'number' ? word : `'${word}'`
-          if (index === 0) return false;
+          if (index === 0) return false
           sql += ` when '${idsArr[index - 1]}' then ${finalWord}`
         })
         sql += ` end`

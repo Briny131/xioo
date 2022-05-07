@@ -386,6 +386,18 @@ export default class Auth extends Controller {
       data: res
     }
   }
+
+  @Get('/oracle')
+  async testOracle() {
+    const { app: { service: { oracle } } } = this;
+
+    const res = await oracle.query<any[]>(`select * from XXAPS.ALLOCATE_V where ALLOCATE_ID = 'b378c51a-d0bd-4c59-ae72-8db878638310'`)
+
+    return {
+      status: '0',
+      data: res
+    }
+  }
 }
 
 // export = Auth;

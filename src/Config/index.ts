@@ -78,6 +78,7 @@ class Config {
   socketConfig: ISocket;
   xios: any;
   es: any;
+  oracle: any;
   /** email配置 */
   email: any;
   /** kafka生产者配置 */
@@ -99,7 +100,7 @@ class Config {
     // 服务端的配置
     const ServerConfig = new ServerConfigSource.server();
 
-    const { redis = {}, httpServer, mysql = {}, pg = {}, socket = {}, xios = {}, es = {}, kafka = {}, email, ...props } = ServerConfig;
+    const { redis = {}, httpServer, mysql = {}, pg = {}, socket = {}, xios = {}, es = {}, kafka = {}, oracle = {}, email, ...props } = ServerConfig;
     const { kafkaProducer = {}, kafkaConsumer = {} } = kafka;
     this.redis = redis;
     this.mysql = mysql;
@@ -117,6 +118,7 @@ class Config {
     this.rests = props;
     this.es = es;
     this.email = email;
+    this.oracle = oracle;
   }
 }
 

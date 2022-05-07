@@ -29,6 +29,10 @@ const ModelLsit = {
     group: 'pgGroup',
     // TypeModel: PostgreSQL,
   },
+  oracle: {
+    group: 'oracleGroup',
+    // TypeModel: ElasticSearch,
+  },
   es: {
     group: 'esGroup',
     // TypeModel: ElasticSearch,
@@ -51,7 +55,7 @@ interface ISource<T> {
   [key: string]: T
 }
 
-type IModelname = 'redis' | 'mysql' | 'pg' | 'es' | 'kafkaProducer' | 'kafkaConsumer' | 'email';
+type IModelname = 'redis' | 'mysql' | 'pg' | 'es' | 'kafkaProducer' | 'kafkaConsumer' | 'email' | 'oracle';
 
 class ServiceConstructor extends Service {
   /** redis连接组 */
@@ -62,6 +66,8 @@ class ServiceConstructor extends Service {
   pgGroup: ISource<any> = {};
   /** es连接组 */
   esGroup: ISource<any> = {};
+  /** oracle连接组 */
+  oracleGroup: ISource<any> = {};
   /** kafka生产者组 */
   kafkaProducerGroup: ISource<any> = {};
   /** kafka消费者组 */
@@ -75,6 +81,8 @@ class ServiceConstructor extends Service {
   mysql: any;
   /** 第一个pg */
   pg: any;
+  /** 第一个oracle */
+  oracle: any;
   /** 第一个es */
   es: any;
   /** 第一个email */
@@ -117,6 +125,8 @@ class ServiceConstructor extends Service {
     this.createConnectGroup<any>('redis');
     /** 创建pg连接 */
     this.createConnectGroup<any>('pg');
+    /** 创建oracle连接 */
+    this.createConnectGroup<any>('oracle')
     /** 创建es连接 */
     this.createConnectGroup<any>('es');
     /** 创建kafka生产者连接 */

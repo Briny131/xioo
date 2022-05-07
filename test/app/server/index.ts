@@ -11,6 +11,7 @@ import redis from '@xioo/redis';
 import pg from '@xioo/postgress';
 import xios from '@xioo/xios';
 import email from '@xioo/email';
+import oracle from '@xioo/oracle';
 
 // import User from './controllers/auth'
 
@@ -18,7 +19,11 @@ import email from '@xioo/email';
 
 console.log('我执行了')
 
-const app = new App({ servicePlugins: { redis, pg, email }, appPlugins: { xios } });
+const app = new App({ servicePlugins: { redis, pg, email, oracle }, appPlugins: { xios } });
+
+process.on('SIGINT', () => {
+    process.kill(process.pid);
+})
 
 app.start();
 

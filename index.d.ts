@@ -66,6 +66,13 @@ declare module 'xioo' {
       /** 连接超时时间 ms */
       connectionTimeoutMillis?: number | string;
     }
+    /** oracle */
+    export interface IOracle extends IModelSQL {
+      /** 用户 */
+      user: string;
+      /** 数据库 */
+      database: string;
+    }
 
     /** http服务配置 */
     export interface IHtppServer {
@@ -218,6 +225,12 @@ declare module 'xioo' {
     transaction: (callback: (conn: IPgSQL) => any) => Promise<any>;
   }
 
+  /** Oracle连接 */
+  interface IOracle {
+    /** 查询 */
+    query: <T>(sql: string) => Promise<T>;
+  }
+
   interface IElasticSearch {
     /** 插入 */
     insert: (index, data, patch?: boolean) => void;
@@ -270,6 +283,8 @@ declare module 'xioo' {
     mysqlGroup: ISource<IMySQL>;
     /** pg连接组 */
     pgGroup: ISource<IPgSQL>;
+    /** oracle连接组 */
+    oracleGroup: ISource<IOracle>
     /** es连接组 */
     esGroup: ISource<IElasticSearch>;
     /** email连接组 */
@@ -280,6 +295,8 @@ declare module 'xioo' {
     mysql: IMySQL;
     /** 第一个pg */
     pg: IPgSQL;
+    /** 第一个pg */
+    oracle: IOracle;
     /** 第一个es */
     es: IElasticSearch;
     /** 第一个email */
@@ -424,6 +441,8 @@ declare module 'xioo' {
     mysql: IMySQL;
     /** 第一pg连接 */
     pg: IPgSQL;
+    /** oracle */
+    oracle: IOracle;
     /** 插件 */
     plugin: IPluginManager;
     /** 进程控制器 */
@@ -488,6 +507,8 @@ declare module 'xioo' {
     mysql?: ISource<XiooConfig.IMySQL>;
     /** pg数据库配置 */
     pg?: ISource<XiooConfig.IPgSQL>;
+    /** oracle配置 */
+    oracle?: ISource<XiooConfig.IOracle>;
     /** es数据库配置 */
     es?: ISource<XiooConfig.IEs>;
     /** http-server配置 */
