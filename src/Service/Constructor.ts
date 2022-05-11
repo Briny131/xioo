@@ -51,7 +51,7 @@ interface ISource<T> {
   [key: string]: T
 }
 
-type IModelname = 'redis' | 'mysql' | 'pg' | 'es' | 'kafkaProducer' | 'kafkaConsumer' | 'email';
+type IModelname = 'redis' | 'mysql' | 'pg' | 'es' | 'kafkaProducer' | 'kafkaConsumer' | 'email' | 'mongo';
 
 class ServiceConstructor extends Service {
   /** redis连接组 */
@@ -79,6 +79,8 @@ class ServiceConstructor extends Service {
   es: any;
   /** 第一个email */
   email: any;
+  /** 第一个email */
+  mongo: any;
   /** 第一个kafka生产者连接 */
   kafkaProducer: any;
   /** 第一个kafka消费者连接 */
@@ -125,6 +127,8 @@ class ServiceConstructor extends Service {
     this.createConnectGroup<any>('kafkaConsumer');
     /** 创建email连接 */
     this.createConnectGroup<any>('email');
+    /** 创建mongo连接 */
+    this.createConnectGroup<any>('mongo');
     this.makeKafka();
   }
 

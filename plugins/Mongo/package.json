@@ -1,0 +1,22 @@
+{
+  "name": "@xioo/mongo",
+  "version": "1.0.0",
+  "typings": "./build/index.d.ts",
+  "main": "./build/index.js",
+  "files": [
+    "build",
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Briny",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "6.3.3"
+  },
+  "devDependencies": {
+    "@types/mongoose": "5.11.97"
+  },
+  "description": "xioo service of mongo"
+}

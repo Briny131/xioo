@@ -86,6 +86,7 @@ class Config {
   kafkaConsumer: any;
   /** 其他的配置 */
   rests: { [key: string]: any };
+  mongo: any
 
   constructor(app: App) {
     this.app = app;
@@ -99,7 +100,7 @@ class Config {
     // 服务端的配置
     const ServerConfig = new ServerConfigSource.server();
 
-    const { redis = {}, httpServer, mysql = {}, pg = {}, socket = {}, xios = {}, es = {}, kafka = {}, email, ...props } = ServerConfig;
+    const { redis = {}, httpServer, mysql = {}, pg = {}, socket = {}, xios = {}, es = {}, kafka = {}, email, mongo, ...props } = ServerConfig;
     const { kafkaProducer = {}, kafkaConsumer = {} } = kafka;
     this.redis = redis;
     this.mysql = mysql;
@@ -117,6 +118,7 @@ class Config {
     this.rests = props;
     this.es = es;
     this.email = email;
+    this.mongo = mongo;
   }
 }
 

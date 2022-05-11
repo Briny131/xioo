@@ -90,6 +90,11 @@ export default class Config {
     }
   }
 
+  // mongo 配置，待补充
+  // mongo = {
+
+  // }
+
   kafka = {
     kafkaProducer: {
       eus_test: {
