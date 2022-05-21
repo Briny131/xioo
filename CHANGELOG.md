@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/zhaodeezhu/xioo/compare/v1.5.1...v1.5.2) (2022-05-10)
+
+
+### Bug Fixes
+
+* 🐛 修改pg数据引号替换的问题 ([9c2736f](https://github.com/zhaodeezhu/xioo/commit/9c2736f2ac08da36f4e616e4edd3ad9e1da8dd8f))
+
+### [1.5.1](https://github.com/zhaodeezhu/xioo/compare/v1.5.0...v1.5.1) (2022-05-10)
+
+
+### Bug Fixes
+
+* 🐛 修改pg更新单引号的问题 ([f7367c4](https://github.com/zhaodeezhu/xioo/commit/f7367c48e166523447a89c7d602d1cf4ad2fec5e))
+
+## [1.5.0](https://github.com/zhaodeezhu/xioo/compare/v1.4.5...v1.5.0) (2022-05-08)
+
+
+### Features
+
+* 🚀 增加oracle连接库 ([6f6f92f](https://github.com/zhaodeezhu/xioo/commit/6f6f92fc13f3d228c749a20e01503d0e4ccf1e53))
+
 ### [1.4.5](https://github.com/zhaodeezhu/xioo/compare/v1.4.4...v1.4.5) (2022-05-05)
 
 ### [1.4.4](https://github.com/zhaodeezhu/xioo/compare/v1.4.3...v1.4.4) (2022-05-01)

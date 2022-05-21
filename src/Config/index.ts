@@ -78,6 +78,7 @@ class Config {
   socketConfig: ISocket;
   xios: any;
   es: any;
+  oracle: any;
   /** email配置 */
   email: any;
   /** kafka生产者配置 */
@@ -99,8 +100,7 @@ class Config {
     const ServerConfigSource = this.app.helper.getDirToFileSource(path.join(this.app.readRoot, './config'));
     // 服务端的配置
     const ServerConfig = new ServerConfigSource.server();
-
-    const { redis = {}, httpServer, mysql = {}, pg = {}, socket = {}, xios = {}, es = {}, kafka = {}, email, mongo, ...props } = ServerConfig;
+    const { redis = {}, httpServer, mysql = {}, pg = {}, socket = {}, xios = {}, es = {}, kafka = {}, oracle = {}, mongo = {}, email, ...props } = ServerConfig;
     const { kafkaProducer = {}, kafkaConsumer = {} } = kafka;
     this.redis = redis;
     this.mysql = mysql;
@@ -119,6 +119,7 @@ class Config {
     this.es = es;
     this.email = email;
     this.mongo = mongo;
+    this.oracle = oracle;
   }
 }
 
